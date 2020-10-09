@@ -35,10 +35,10 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'price' => 'Price',
-            'date' => 'Date',
-            'status' => 'Status',
-            'address' => 'Address',
+            'date' => 'Дата',
+            'status' => 'Статус',
+            'address' => 'Адрес',
+            'sum' => 'Цена',
         ];
     }
 
