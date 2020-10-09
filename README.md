@@ -1,8 +1,32 @@
 # VolgaIT Задание 1. Упрощенная CMS
-<h3>Корневая папка для запуска /web</h3>
 <hr/>
-<p>При работе я использовал фреймворк Yii2.</p>
-<p>СУБД - MySql.</p>
+<p>При работе я использовал: </p>
+<ul>
+<li>Фреймворк Yii2;</li>
+<li>HTTP - Apache 2.4;</li>
+<li>PHP - PHP 7.4;</li>
+<li>СУБД - MySql-8.0;</li>
+</ul>
+<hr/>
+<h4>Развёртывание проекта:</h4>
+Чтобы запустить проект вам необходимо настроить Apache.
+
+    <VirtualHost *:%httpport%> <--- port
+
+        DocumentRoot    "...\VolgaIT\web"  <--- путь до '\web'
+        ServerName      "%host%" <---- host (localhost)
+        ServerAlias     "%host%" %aliases%  <--- (localhost)
+
+    </VirtualHost>
+
+Для XAMPP этот будет в файле '...\XAMPP\apache\conf\extra';
+<br/>
+<p>В корне проекта находяится <b>'volga_it.sql'</b>. С помощью него вы можете импортировать базу с парой существующих заказов.</p>
+<p>В файле <b>'\config\web\db.php'</b> настройте подключение к базе.</p>
+
+        'dsn' => 'mysql:host=%host%;dbname=%database%',   <--- (localhost) (volga_it)
+        'username' => '%username%', <--- логин   
+        'password' => '%password%',  <--- пароль
 <hr/>
 <p>Мой проект состоит из четырёх контроллеров:</p>
 <ul>
@@ -28,6 +52,3 @@ login: <b>admin</b>
 <br/>
 password: <b>123</b>
 <br/>
-<hr/>
-<p>В корне проекта находяится <b>'volga_it.sql'</b>. С помощью него вы можете импортировать базу с парой существующих заказов.</p>
-<p>В файле <b>'/config/web/db.php'</b> настройте подключение к базе.</p>
