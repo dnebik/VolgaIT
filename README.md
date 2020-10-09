@@ -19,7 +19,7 @@
 
     </VirtualHost>
 
-Для XAMPP этот будет в файле '...\XAMPP\apache\conf\extra';
+Для XAMPP этот будет в файле '...\XAMPP\apache\conf\extra\httpd-vhosts.conf';
 <br/>
 <p>В корне проекта находяится <b>'volga_it.sql'</b>. С помощью него вы можете импортировать базу с парой существующих заказов.</p>
 <p>В файле <b>'\config\web\db.php'</b> настройте подключение к базе.</p>
