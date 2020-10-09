@@ -35,9 +35,9 @@ AppAsset::register($this);
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Каталог <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Корзина</a>
-                <a class="nav-item nav-link" href="#">Заказы</a>
+                <a class="nav-item nav-link" <?= Yii::$app->controller->id == 'site' ? 'active' : '' ?> href="<?=Url::to('site')?>">Каталог<span class="sr-only">(current)</span></a>
+                <a onclick="openCart(event)" class="nav-item nav-link" href="#">Корзина</a>
+                <a class="nav-item nav-link" <?= Yii::$app->controller->id == 'order' ? 'active' : '' ?> href="<?=Url::to('order')?>">Заказы</a>
                 <form class="form-inline mx-sm-3 mb-2" action="<?= Url::to(['/search']) ?>" method="get">
                     <input class="form-control" type="text" style="padding: 5px" placeholder="Поиск..." name="value" required>
                     <button class="btn btn-success btn-search">Искать</button>
