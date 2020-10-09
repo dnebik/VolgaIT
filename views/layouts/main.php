@@ -30,7 +30,7 @@ AppAsset::register($this);
 
 <div class="wrap">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Магазин</a>
+        <span class="navbar-brand">Магазин</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,6 +46,9 @@ AppAsset::register($this);
                         }
                         ?>
                     </span></a>
+                <?if (!Yii::$app->user->isGuest) {?>
+                    <a class="nav-item nav-link" href="<?=Url::to('/admin')?>">Панель управления</a>
+                <?}?>
                 <?if (Yii::$app->user->isGuest) {?>
                     <a class="nav-item nav-link" href="<?=Url::to('/admin/login')?>">Вход в админку</a>
                 <?} else {?>
