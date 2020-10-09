@@ -30,11 +30,19 @@ class Cart extends Model
 
     public static function getFullPrice() {
         $finalPrice = 0;
-        foreach ($_SESSION['cart'] as $item) {
-            $price = $item['price'] * $item['count'];
-            $finalPrice += $price;
+        if ($_SESSION['cart'])
+        {
+            foreach ($_SESSION['cart'] as $item) {
+                $price = $item['price'] * $item['count'];
+                $finalPrice += $price;
+            }
         }
         return $finalPrice;
+    }
+
+    public static function clearCart()
+    {
+        unset($_SESSION['cart']);
     }
 
     public static function getFullCount() {

@@ -51,3 +51,34 @@ function removeFromCart (event, id) {
         }
     })
 };
+
+function clearCart(event){
+    event.preventDefault();
+
+    $.ajax({
+        url: '/cart/clear',
+        success: function (res) {
+            $('#cart .modal-content').html(res);
+            $('.menu_quantity').html('');
+        },
+        error: function (res) {
+            alert('Not Ok: ' + res);
+            console.log(res);
+        }
+    })
+};
+
+$('.modal-content').on('click', '.btn-next', function () {
+    $.ajax({
+        url: '/cart/order',
+        success: function (res) {
+            $('#order .modal-content').html(res);
+        },
+        error: function () {
+            alert('Not Ok');
+        }
+    });
+
+    $('#cart').modal('hide');
+    $('#order').modal('show');
+})

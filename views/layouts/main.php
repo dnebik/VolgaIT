@@ -75,6 +75,15 @@ AppAsset::register($this);
     </div>
 </div>
 <!-- END CART -->
+<!-- ORDER -->
+<div class="modal fade" id="order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            ...
+        </div>
+    </div>
+</div>
+<!-- END ORDER -->
 
 
 <?php $this->endBody() ?>

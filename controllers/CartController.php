@@ -40,6 +40,15 @@ class CartController extends Controller
         return $this->renderPartial("cart", compact('session'));
     }
 
+    public function actionClear() {
+        $session = Yii::$app->session;
+        $session->open();
+
+        Cart::clearCart();
+
+        return $this->renderPartial("cart", compact('session'));
+    }
+
     public function actionRemove($id) {
 
         $good = Good::getByIdentity($id);
