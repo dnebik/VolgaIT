@@ -6,3 +6,32 @@
 .btn-search {
     margin-left: 1rem;
 }
+
+.product {
+    background-color: #bde0e370;
+    box-shadow: 0 0 1px 2px lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 12px;
+}
+
+.product-name {
+    font-size: 18px;
+    margin-bottom: 9px;
+}
+
+.product-descr {
+    margin-bottom: 3px;
+}
+
+.product-price {
+    margin-bottom: 5px;
+}
+
+.product-buttons {
+    display: flex;
+}
+
+.product-button__add {
+    margin: 0 auto;
+}
