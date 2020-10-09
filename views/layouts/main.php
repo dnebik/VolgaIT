@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -37,6 +38,10 @@ AppAsset::register($this);
                 <a class="nav-item nav-link active" href="#">Каталог <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#">Корзина</a>
                 <a class="nav-item nav-link" href="#">Заказы</a>
+                <form class="form-inline mx-sm-3 mb-2" action="<?= Url::to(['/search']) ?>" method="get">
+                    <input class="form-control" type="text" style="padding: 5px" placeholder="Поиск..." name="value" required>
+                    <button class="btn btn-success btn-search">Искать</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -49,6 +54,19 @@ AppAsset::register($this);
 <footer class="footer text-center">
         ВолгаIT <span style="color: red">❤</span>
 </footer>
+
+
+
+<!-- CART -->
+<div class="modal fade" id="cart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            ...
+        </div>
+    </div>
+</div>
+<!-- END CART -->
+
 
 <?php $this->endBody() ?>
 </body>

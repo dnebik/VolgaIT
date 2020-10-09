@@ -62,4 +62,13 @@ class Good extends \yii\db\ActiveRecord
     {
         return $this->hasMany(OrderGood::className(), ['id_good' => 'id']);
     }
+
+    public static function getAllGood()
+    {
+        return self::find()->all();
+    }
+    public static function findAllLike($name)
+    {
+        return self::find()->filterWhere(['like', 'name', $name])->all();
+    }
 }
