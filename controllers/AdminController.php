@@ -54,11 +54,8 @@ class AdminController extends Controller
         }
 
         $model = new LoginForm();
-        error_log(print_r($model, true));
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->render('index', [
-                'dataProvider' => $dataProvider,
-            ]);
+            Yii::$app->response->redirect('/admin');
         }
 
         $model->password = '';
