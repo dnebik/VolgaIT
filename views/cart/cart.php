@@ -66,5 +66,5 @@ if (isset($session['cart'])) {
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
     <button onclick="clearCart(event)" type="button" class="btn btn-danger" <?= (Cart::getFullPrice() == 0) ? 'disabled' : '' ?>>Очистить корзину</button>
-    <button type="button" class="btn btn-primary" <?= !$cart ? 'disabled' : ''?>>Заказать</button>
+    <button type="button" class="btn btn-primary btn-next" <?= !$cart ? 'disabled' : ''?>>Заказать</button>
 </div>

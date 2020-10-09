@@ -17,31 +17,20 @@ use Yii;
  */
 class Order extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+
     public static function tableName()
     {
         return 'order';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
-            [['price', 'status', 'address'], 'required'],
-            [['price'], 'number'],
-            [['date'], 'safe'],
-            [['status'], 'string', 'max' => 16],
             [['address'], 'string', 'max' => 255],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function attributeLabels()
     {
         return [
@@ -53,13 +42,9 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * Gets query for [[OrderGoods]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
     public function getOrderGoods()
     {
-        return $this->hasMany(OrderGood::className(), ['id_order' => 'id']);
+        return $this->hasMany(OrderGood::class, ['id_order' => 'id']);
     }
+
 }

@@ -25,34 +25,6 @@ class Good extends \yii\db\ActiveRecord
         return 'good';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['name', 'price', 'link_name'], 'required'],
-            [['price'], 'number'],
-            [['description'], 'string'],
-            [['name'], 'string', 'max' => 64],
-            [['link_name'], 'string', 'max' => 255],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'price' => 'Price',
-            'description' => 'Description',
-            'link_name' => 'Link Name',
-        ];
-    }
-
     public function getOrderGoods()
     {
         return $this->hasMany(OrderGood::class, ['id_good' => 'id']);
