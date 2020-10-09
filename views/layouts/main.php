@@ -27,28 +27,27 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <nav class="navbar navbar-dark bg-dark">  <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Магазин</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Товар <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Features</a>
+                <a class="nav-item nav-link active" href="#">Каталог <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Корзина</a>
+                <a class="nav-item nav-link" href="#">Заказы</a>
             </div>
         </div>
     </nav>
+
     <div class="container">
         <?= $content ?>
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
+<footer class="footer text-center">
+        ВолгаIT <span style="color: red">❤</span>
 </footer>
 
 <?php $this->endBody() ?>
