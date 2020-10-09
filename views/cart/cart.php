@@ -1,5 +1,7 @@
 <?php
 
+use app\models\Cart;
+
 if (isset($session['cart'])) {
     $cart = $session['cart'];
 }
@@ -33,12 +35,27 @@ if (isset($session['cart'])) {
         </thead>
 
         <tbody>
+        <?
+        $i = 1;
+        foreach ($cart as $item) {?>
             <tr>
-                <th scope="row"></th>
-                <td>sad</td>
-                <td>sad</td>
-                <td>da</td>
-                <td>sdag</td>
+                <th scope="row"><?=$i++?></th>
+                <td><?=$item['name']?></td>
+                <td><?=$item['count']?></td>
+                <td><?=$item['price']?></td>
+                <td onclick="removeFromCart(event, <?= $id ?>)" class="delete"
+                    style="text-align: center; cursor: pointer; vertical-align: middle; color: red; font-weight: 1000;">
+                    <span>✕</span></td>
+            </tr>
+        <?}?>
+
+            <tr style="border-top: 4px solid black">
+                <td colspan="4">Всего товаров</td>
+                <td class="total-quantity"><?= Cart::getFullCount(); ?></td>
+            </tr>
+            <tr>
+                <td colspan="4">На сумму</td>
+                <td style="font-weight: 700"><?= Cart::getFullPrice(); ?> рублей</td>
             </tr>
         </tbody>
     </table>

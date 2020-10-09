@@ -53,22 +53,23 @@ class Good extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * Gets query for [[OrderGoods]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
     public function getOrderGoods()
     {
-        return $this->hasMany(OrderGood::className(), ['id_good' => 'id']);
+        return $this->hasMany(OrderGood::class, ['id_good' => 'id']);
     }
 
     public static function getAllGood()
     {
         return self::find()->all();
     }
+
     public static function findAllLike($name)
     {
         return self::find()->filterWhere(['like', 'name', $name])->all();
+    }
+
+    public static function getByIdentity($id)
+    {
+        return self::find()->where(['id' => $id])->one();
     }
 }

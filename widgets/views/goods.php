@@ -16,8 +16,7 @@ use app\models\Good;
                     <div class="product-descr"><?= $good->description ?></div>
                     <div class="product-price">Цена: <?= $good->price ?> рублей</div>
                     <div class="product-buttons">
-                        <a href="#" data-name="<?= $good->id ?>" type="button" class="product-button__add btn btn-success">Заказать</a>
-                        <a href="<?= Url::to(["/good", "name" => $good->id]) ?>" type="button" class="product-button__more btn btn-primary">Подробнее</a>
+                        <a href=""  data-name="<?= $good->id ?>" type="button" class="product-button__add btn btn-success">Заказать</a>
                     </div>
                 </div>
             </div>
