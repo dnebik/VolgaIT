@@ -26,7 +26,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['address'], 'string', 'max' => 255],
+            [['address', 'status'], 'string', 'max' => 255],
         ];
     }
 

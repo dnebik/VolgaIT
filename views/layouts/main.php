@@ -46,7 +46,11 @@ AppAsset::register($this);
                         }
                         ?>
                     </span></a>
-                <a class="nav-item nav-link" <?= Yii::$app->controller->id == 'order' ? 'active' : '' ?> href="<?=Url::to('order')?>">Заказы</a>
+                <?if (Yii::$app->user->isGuest) {?>
+                    <a class="nav-item nav-link" href="<?=Url::to('/admin/login')?>">Вход в админку</a>
+                <?} else {?>
+                    <a class="nav-item nav-link" href="<?=Url::to('/admin/logout')?>">Выход из админки</a>
+                <?}?>
                 <form class="form-inline mx-sm-3 mb-2" action="<?= Url::to(['/search']) ?>" method="get">
                     <input class="form-control" type="text" style="padding: 5px" placeholder="Поиск..." name="value" required>
                     <button class="btn btn-success btn-search">Искать</button>
