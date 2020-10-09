@@ -37,7 +37,7 @@ if (isset($session['cart'])) {
         <tbody>
         <?
         $i = 1;
-        foreach ($cart as $item) {?>
+        foreach ($cart as $id => $item) {?>
             <tr>
                 <th scope="row"><?=$i++?></th>
                 <td><?=$item['name']?></td>
