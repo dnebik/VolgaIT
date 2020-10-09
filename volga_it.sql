@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 09, 2020 at 03:10 PM
+-- Generation Time: Oct 09, 2020 at 03:52 PM
 -- Server version: 8.0.19
 -- PHP Version: 7.4.5
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `good` (
   `price` float NOT NULL,
   `description` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `good`
@@ -46,7 +46,12 @@ INSERT INTO `good` (`id`, `name`, `price`, `description`) VALUES
 (1, 'Чашка', 250, 'Обычная чашка'),
 (2, 'Пила', 380, 'Тупая'),
 (3, 'Тачилка', 80, 'Точит'),
-(4, 'Рюгзак', 980, 'Детский');
+(4, 'Рюгзак', 980, 'Детский'),
+(5, 'Шкатулка', 750, 'Из красного дерева'),
+(6, 'Ручка', 15, 'Шариковая, тонкая'),
+(7, 'Браслет', 480, 'Блестит'),
+(8, 'Ракушка', 147, 'Содержит звуки моря'),
+(9, 'Палатка', 5600, 'Трёхместная');
 
 -- --------------------------------------------------------
 
@@ -62,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(16) NOT NULL DEFAULT 'new',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `order`
@@ -70,7 +75,9 @@ CREATE TABLE IF NOT EXISTS `order` (
 
 INSERT INTO `order` (`id`, `address`, `sum`, `date`, `status`) VALUES
 (1, 'Машиностроителей 11', 380, '2020-10-09 13:48:34', 'new'),
-(2, 'Машиностроителей 11 к2 кв239', 1940, '2020-10-09 13:49:48', 'complete');
+(2, 'Машиностроителей 11 к2 кв239', 1940, '2020-10-09 13:49:48', 'complete'),
+(3, 'Первомайскай 1А кв15', 1440, '2020-10-09 15:23:42', 'new'),
+(4, 'Ленинская 18 к2 кв315', 4410, '2020-10-09 15:32:43', 'new');
 
 -- --------------------------------------------------------
 
@@ -90,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `order_good` (
   PRIMARY KEY (`id`),
   KEY `order_good_good_id_fk` (`id_good`),
   KEY `order_good_order_id_fk` (`id_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `order_good`
@@ -101,7 +108,14 @@ INSERT INTO `order_good` (`id`, `id_order`, `id_good`, `name`, `price`, `quantit
 (2, 2, 2, 'Пила', 380, 1, 380),
 (3, 2, 4, 'Рюгзак', 980, 1, 980),
 (4, 2, 1, 'Чашка', 250, 2, 500),
-(5, 2, 3, 'Тачилка', 80, 1, 80);
+(5, 2, 3, 'Тачилка', 80, 1, 80),
+(6, 3, 2, 'Пила', 380, 1, 380),
+(7, 3, 4, 'Рюгзак', 980, 1, 980),
+(8, 3, 3, 'Тачилка', 80, 1, 80),
+(9, 4, 4, 'Рюгзак', 980, 3, 2940),
+(10, 4, 2, 'Пила', 380, 3, 1140),
+(11, 4, 3, 'Тачилка', 80, 1, 80),
+(12, 4, 1, 'Чашка', 250, 1, 250);
 
 -- --------------------------------------------------------
 
